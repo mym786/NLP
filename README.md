@@ -8,14 +8,16 @@ data_preprocessing.py
 針對104網站爬蟲整理好的「工作內容」和「工作條件」分別進行以下步驟來做為資料預處理：
 
 因為簡體的文字相較於繁體中文而言，對於jieba斷詞前者斷詞結果會比較佳
+
 1.斷詞(將**繁體翻譯完簡體**後進行斷詞，使用外部辭典及jieba套件)
 
 2.停止詞過濾(將**簡體字翻譯為繁體**後，從資料庫的停止詞進行過濾)
 
 使用**停用詞**字詞表，參考網址：
-中國大陸簡體中文與英文版：https://github.com/goto456/stopwords
-台灣繁體中文版：https://github.com/tomlinNTUB/Machine-Learning/blob/master/data/%E5%81%9C%E7%94%A8%E8%A9%9E-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87.txt
-英文停用詞表：https://blog.csdn.net/shijiebei2009/article/details/39696523
++ 中國大陸簡體中文與英文版：https://github.com/goto456/stopwords
++ 台灣繁體中文版：https://github.com/tomlinNTUB/Machine-Learning/blob/master/data/%E5%81%9C%E7%94%A8%E8%A9%9E-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87.txt
++ 英文停用詞表：https://blog.csdn.net/shijiebei2009/article/details/39696523
+
 --------------------------------------------------------------------------------------------------------------------------
 
 
