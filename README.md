@@ -21,7 +21,7 @@ data_preprocessing.py
 + 台灣繁體中文版：https://github.com/tomlinNTUB/Machine-Learning/blob/master/data/%E5%81%9C%E7%94%A8%E8%A9%9E-%E7%B9%81%E9%AB%94%E4%B8%AD%E6%96%87.txt
 + 英文停用詞表：https://blog.csdn.net/shijiebei2009/article/details/39696523
 
-- 3.TF-IDF 找出「工作內容」和「工作條件」的主要特徵關鍵詞與向量，結果存入csv檔({}_WordVector.csv)
+- 3.找出「工作內容」和「工作條件」中詞頻數量分別前100多的字詞，結果一起存入csv檔({}_TermCount.csv)
 
 --------------------------------------------------------------------------------------------------------------------------
 
