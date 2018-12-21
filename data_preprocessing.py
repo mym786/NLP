@@ -107,7 +107,7 @@ def get_stopword_list():
                                   host='localhost',
                                   database='jobot')
     cur =conn.cursor()
-    cur.execute ( "SELECT * FROM nlp_stopwords" )
+    cur.execute ( "SELECT * FROM nlp_simplechinese_stopwords" )
     
     stop_tuple=()
     for stop in cur.fetchall (): 
@@ -140,7 +140,8 @@ def simple_to_traditional(cont_seg_list,cond_seg_list):
     for n in cont_seg_list:   
         word_list=[]
         for i in range(len(n)):
-            word=HanziConv.toTraditional(n[i])
+            #word=HanziConv.toTraditional(n[i])
+            word=n[i]
             word_list.append(word)
         cont_list.append(word_list) 
     print(len(cont_list))     
@@ -148,7 +149,8 @@ def simple_to_traditional(cont_seg_list,cond_seg_list):
     for n in cond_seg_list:   
         word_list=[]
         for i in range(len(n)):           
-            word=HanziConv.toTraditional(n[i])
+            #word=HanziConv.toTraditional(n[i])
+            word=n[i]
             word_list.append(word)
         cond_list.append(word_list)
     print(len(cond_list))     
@@ -269,7 +271,9 @@ def tfidf_kw(_filter_list):
     # 打印权重
     list_a=[]
     list_b=[]
+    
     for i in range(len(weight)):
+        print("----- %d -----" %(i))
         for j in range(len(word)):
             if weight[i][j] != 0.0 :
                 print("{}: {}".format(word[j],weight[i][j]))
@@ -284,7 +288,7 @@ def tfidf_kw(_filter_list):
 
 
 def df_to_csv(df,csv_output):
-    df.to_csv(csv_output, sep='\t', encoding='UTF-8')
+    df.to_csv(csv_output, sep='\t', index=False,encoding='GBK') #GBK簡體中文
     
 
 
