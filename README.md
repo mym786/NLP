@@ -47,7 +47,7 @@
 ### 104_crawlerBasedPosition.py
 1.104求才網站爬蟲，針對職缺五類(1.	管理/行政/財經/法務。2.	行銷/業務/服務。3.	教育/媒體/傳播。4.	軟硬體研發/製造/工程。5.	其他專業 (農林漁牧/餐飲/醫學/軍警/物流/採購)。)將**公司名稱、職缺名稱、工作內容和工作條件** 作為欄位的存取，並依序存入csv檔(依序為 class1_content_output.csv、class2_content_output.csv、class3_content_output.csv、class4_content_output.csv和class5_content_output.csv
 
-### modelForRecommend.py 
+### ClassifyForCV_Job.py 
 1. 讀取資料集：
 
 先讀取job_content.sql中的jobContent, jobCondition, positionClass欄位，將每一筆的jobContent, jobCondition合併後進行jieba斷詞，最後斷詞結果和positionClass欄位的值一起存入csv檔 (job_class1_5.csv)
@@ -64,3 +64,8 @@
 
 + 將訓練好的模組後，並將此model用pickle檔儲存(cv_classifier_{時間}.pickle)，並呼叫此模組將**測試**資料集放入
 + 最後將預測結果與測試資料一起儲存csv檔(job_class1_5_predResult.csv)，以做為比較用途。
+
+
+### cvRecommend.py
+
+
