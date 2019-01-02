@@ -156,7 +156,9 @@ def predCV_class(cvContent):
     
     
     print(predictions)
-    return predictions
+    #list result to string
+    prediction = ''.join(predictions)
+    return prediction
     
 def callModel(mode_path,feature_vector_valid,is_neural_net=False):
     #读取Model
@@ -186,6 +188,16 @@ def callModel(mode_path,feature_vector_valid,is_neural_net=False):
     return predictions 
     
 
+def saveDB(user_id,file_path,cvContent,prediction):
+    mycursor = conn.cursor()
+ 
+    sql = "INSERT INTO job_cv (userid, cvDocument, cvContent, positionClass) VALUES (%s, %s, %s, %s)"
+    val = (user_id,file_path,cvContent,prediction)
+    mycursor.execute(sql, val)
+
+    conn.commit()
+
+    
 
 if __name__=='__main__':
     #判斷是否有接到外部參數的user_id的值
@@ -196,12 +208,9 @@ if __name__=='__main__':
     
         cvContent=readCVContent(file_path)
         
-        predictions=predCV_class(cvContent)
+        prediction=predCV_class(cvContent)    
         
-        
-        
-        
-        
+        saveDB(user_id,file_path,cvContent,prediction)
        
     except IndexError as e:
         # do stuff... optionally displaying the error (e)
