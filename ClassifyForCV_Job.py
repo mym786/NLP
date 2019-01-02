@@ -124,22 +124,20 @@ def trainModel(job_df):
     y_test = encoder.fit_transform(y_test)
     """
     
-    #创建一个向量计数器对象
-    count_vect = CountVectorizer(analyzer='word', token_pattern=r'\w{1,}')
+    #创建一个向量计数器对象#使用向量计数器对象转换训练集和验证集
+    count_vect = CountVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=210)
     count_vect.fit(x)
-
-    #使用向量计数器对象转换训练集和验证集
     xtrain_count = count_vect.transform(x_train)
     xtest_count = count_vect.transform(x_test)
     
     # ngram 级tf-idf
-    tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=5000)
+    tfidf_vect_ngram = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', ngram_range=(2,3), max_features=210)
     tfidf_vect_ngram.fit(x)
     xtrain_tfidf_ngram = tfidf_vect_ngram.transform(x_train)
     xtest_tfidf_ngram = tfidf_vect_ngram.transform(x_test)
 
     #词语级tf-idf
-    tfidf_vect = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=5000)
+    tfidf_vect = TfidfVectorizer(analyzer='word', token_pattern=r'\w{1,}', max_features=210)
     tfidf_vect.fit(x)
     xtrain_tfidf = tfidf_vect.transform(x_train)
     xtest_tfidf = tfidf_vect.transform(x_test)
