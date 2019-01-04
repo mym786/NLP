@@ -68,6 +68,9 @@
 
 + 最後將預測結果與測試資料一起儲存csv檔(job_class1_5_predResult.csv)，以做為比較用途。
 
+### yourator_crawler.py
+
+爬取yourator工作職缺，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
 
 ### cvRecommend.py
 
