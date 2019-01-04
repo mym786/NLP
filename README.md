@@ -45,7 +45,10 @@
 
 
 ### 104_crawlerBasedPosition.py
+
 1.104求才網站爬蟲，針對職缺五類(1.	管理/行政/財經/法務。2.	行銷/業務/服務。3.	教育/媒體/傳播。4.	軟硬體研發/製造/工程。5.	其他專業 (農林漁牧/餐飲/醫學/軍警/物流/採購)。)將**公司名稱、職缺名稱、工作內容和工作條件** 作為欄位的存取，並依序存入csv檔(依序為 class1_content_output.csv、class2_content_output.csv、class3_content_output.csv、class4_content_output.csv和class5_content_output.csv
+
+2. ***作為訓練modle的資料集***
 
 ### ClassifyForCV_Job.py 
 1. 讀取資料集：
@@ -70,9 +73,14 @@
 
 ### yourator_crawler.py
 
-爬取yourator工作職缺(參考： https://www.yourator.co/events/2019YouratorSpringJobFair )，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
+1.爬取yourator工作職缺(參考： https://www.yourator.co/events/2019YouratorSpringJobFair )，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
 
-用來做工作內容分類的預測
+2.***用來做工作內容分類的目標預測集推薦給user的資料集***
+
+
+### jobPredClass.py
+
+1. 預測工作職缺的類別
 
 ### cvRecommend.py
 
