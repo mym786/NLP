@@ -70,7 +70,7 @@
 
 ### yourator_crawler.py
 
-爬取yourator工作職缺，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
+爬取yourator工作職缺(參考： https://www.yourator.co/events/2019YouratorSpringJobFair )，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
 
 用來做工作內容分類的預測
 
