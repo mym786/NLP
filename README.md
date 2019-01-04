@@ -72,6 +72,8 @@
 
 爬取yourator工作職缺，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
 
+用來做工作內容分類的預測
+
 ### cvRecommend.py
 
 1.從外部讀取user的 userid和履歷檔案
