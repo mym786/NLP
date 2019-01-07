@@ -69,7 +69,7 @@
 
 + 將訓練好的模組後，並將此model用pickle檔儲存(cv_classifier_{時間}.pickle) ，並呼叫此模組將**測試**資料集放入
 
-預測結果，以字詞tfidf的貝氏(bayes)模型，正確率最高，因此以此作為之後的預測模型 **cv_classifier_20190102_171610.pickle**
+預測結果，以字詞tfidf的貝氏(bayes)模型，正確率最高，因此以此作為之後的預測模型 **cv_classifier_20190107_100139.pickle**
 
 + 最後將預測結果與測試資料一起儲存csv檔(job_class1_5_predResult.csv)，以做為比較用途。
 
@@ -82,7 +82,7 @@
 
 ### jobPredClass.py
 
-1. 預測工作職缺的類別
+1. 預測工作職缺的類別，並儲存在資料庫
 
 ### cvRecommend.py
 
@@ -90,7 +90,9 @@
 
 2.預測履歷的職缺類別
 
-+ 利用字詞tfidf的貝氏(bayes)模型
++ 
++ 呼叫ClassifyForCV_Job.py以訓練好的model，利用字詞tfidf的貝氏(bayes)模型,進行預測。將原本 **訓練** 的data進行fit
++ 
 
 3.計算DISC分數
 
