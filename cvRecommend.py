@@ -149,7 +149,7 @@ def predCV_class(cvContent):
     print("ytest_tfidf.shape==>",ytest_tfidf.shape)
     
    # print(ytest_tfidf)
-    modelName="cv_classifier_20190102_171610.pickle"
+    modelName="cv_classifier_20190107_100139.pickle"
     mode_path="saveModel/{}".format(modelName)
     
      #開始預測
