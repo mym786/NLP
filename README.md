@@ -59,7 +59,8 @@
 
 
 ### ClassifyForCV_Job.py 
-1. 讀取資料集：
+
+1.讀取資料集：
 
 先讀取job_content.sql中的jobContent, jobCondition, positionClass欄位，將每一筆的jobContent, jobCondition合併後進行jieba斷詞，最後斷詞結果和positionClass欄位的值一起存入csv檔 (job_class1_5.csv)
  
