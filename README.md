@@ -50,6 +50,14 @@
 
 2. **作為訓練modle的資料集** 
 
+
+### yourator_crawler.py
+
+1.爬取yourator工作職缺(參考： https://www.yourator.co/events/2019YouratorSpringJobFair )，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
+
+2.**用來做工作內容分類的目標預測集推薦給user的資料集**
+
+
 ### ClassifyForCV_Job.py 
 1. 讀取資料集：
 
@@ -73,11 +81,12 @@
 
 + 最後將預測結果與測試資料一起儲存csv檔(job_class1_5_predResult.csv)，以做為比較用途。
 
-### yourator_crawler.py
+4. 計算每一個職缺類別(class1~class5)的文本的5000維度向量值，並儲存：
 
-1.爬取yourator工作職缺(參考： https://www.yourator.co/events/2019YouratorSpringJobFair )，分別為「公司名稱」、「職缺url」、「職缺名稱」、「職缺內容」。存入csv檔和mysql資料庫中。
++ 為了讓使用 **推薦模組的餘弦定理計算兩兩文本(履歷和職缺)的字詞向量距離** 比較省時及效率
 
-2.**用來做工作內容分類的目標預測集推薦給user的資料集**
++ 將已經預測好職缺類別的工作之後，從資料庫找職缺類別1~5的工作找出來，並計算每個類別中所有職缺的tfidf字詞向量，並以pickle檔儲存 ( class_{職缺類別}_vector.pickle) ，共五個。
+
 
 
 ### jobPredClass.py
