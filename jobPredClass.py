@@ -164,19 +164,21 @@ def saveDB(position_list,prediction):
     
 
 def cal_class_vector(classi):
-    
    
     mycursor = conn.cursor()
     # 使用execute方法执行SQL语句
     sql="SELECT id, positionContent FROM yourator_job WHERE positionClass='{}' ".format(classi)
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
-    
+        
     position_list=[]
+    id_list=[]
     job_class_vector=[]
-    for row in myresult :
-        print(row)
+    for row in myresult :   
         position_list.append(row)
+        print(row[0])
+        
+        id_list.append(row[0])
         
     output_list=Jieba_segment(position_list)  #call jieba segment
     #list to pd.series
@@ -201,16 +203,26 @@ def cal_class_vector(classi):
                 print(word[j],weight[i][j])
                 job_weight_list.append(weight[i][j])
             job_class_vector.append(job_weight_list)
-                    
+
+    job_class_df = pd.DataFrame(
+    {'id': id_list,
+     'vector': job_class_vector
+    })
+                     
     # 训练職缺向量模型并保存
     class_model_name="saveModel/class_{}_vector.pickle".format(classi)
-    with open(class_model_name, 'wb') as f:
-        pickle.dump(job_class_vector, f)
-        
-     # 讀取職缺向量模型
-    #with open(class_model_name, 'rb') as f:
-        #mynewlist = pickle.load(f)
+    job_class_df.to_pickle(class_model_name)
     
+    #with open(class_model_name, 'wb') as f:
+        #pickle.dump(job_class_df, f)
+        
+
+        # 讀取職缺向量模型
+    #unpickled_df = pd.read_pickle(class_model_name)
+        #with open(class_model_name, 'rb') as f:
+            #mynewlist = pickle.load(f)
+            
+            
     
 if __name__=='__main__':
     #判斷是否有接到外部參數的user_id的值
