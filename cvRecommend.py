@@ -27,7 +27,7 @@ import heapq
 import disc
 
 conn = mysql.connector.connect(user='jobRecommend', password='xOsIhwgaFIfm8nqf',
-                              host='localhost',
+                              host='35.160.71.183',
                               database='job_recommendation')
 
 
@@ -70,7 +70,7 @@ def readCVContent(file_path):
     """
     #file_path="j156kt2"
     cv_file="C:/xampp/htdocs/eduai_jobot/module/NLP/file/{}.pdf".format(file_path)
-    
+    #cv_file=file_path
     pdfFile=open(cv_file,"rb")
     #pdfFile = urlopen("http://www1.pu.edu.tw/~s1040204/autobiography.pdf")
     outputString = readPDF(pdfFile)
@@ -284,22 +284,31 @@ def countPower(power,word_list,prediction):
       
     #查詢前，必須先獲取游標
     cur =conn.cursor ()
+     #執行的都是原生SQL語句
+    sql="SELECT {} FROM job_class WHERE classNo= '{}' ".format(power,prediction)
+    cur.execute(sql)
+    Standard_score=cur.fetchone()
+    Standard_score = float(Standard_score[0])
+    #print(type(Standard_score))
+    cur =conn.cursor ()
     #執行的都是原生SQL語句
     sql="SELECT words,score FROM job_3powers_keywords WHERE positionClass= '{}' AND powerClass= '{}' ".format(prediction,power)
     
     cur.execute(sql)
     #conn.commit()  #執行sql指令
     
-    total_score=0.0                                            
+    total_score=0.0
+    word_list = list(set(word_list))    #刪除重複的字詞                                        
     for (words, score) in cur:
         #print("{}, {}".format(Words, Score)) 
         for i in range(0, len(word_list)):
             if word_list[i]== words:
                 total_score+=score
                 #print("{},{}".format(word_list[i],total_score))
-    
-    total_score=round(total_score, 3)
-    return total_score
+                
+    t=round(((total_score/Standard_score)*100), 3)
+    #total_score=round(total_score, 3)
+    return t
        
 
 def recommendJob(prediction,cv_weight_list):
@@ -365,14 +374,14 @@ def saveDB(upload_id,file_path,cvContent,prediction,d,i,s,c,skill_score, educati
     
     conn.close()
     
-
+#def cv_main(upload_id, file_path):
 if __name__=='__main__':
     #判斷是否有接到外部參數的user_id的值
     try:
-        #print(sys.argv[1])
+        
         upload_id=sys.argv[1]
         file_path=sys.argv[2]
-    
+        print(file_path)
         cvContent=readCVContent(file_path)
         
         prediction,output_list,cv_weight_list=predCV_class(cvContent)    
