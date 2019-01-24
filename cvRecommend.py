@@ -313,7 +313,6 @@ def countPower(power,word_list,prediction):
 
 def recommendJob(prediction,cv_weight_list):
     #從資料庫select出和履歷同類別的職缺
-    prediction=4
     cos_len=[]
            
     class_model_name="saveModel/class_{}_vector.pickle".format(prediction)
@@ -395,5 +394,5 @@ if __name__=='__main__':
        
     except IndexError as e:
         # do stuff... optionally displaying the error (e)
-        print("123")
+        print("not inpu variable")
     
