@@ -75,7 +75,6 @@
   + 向量计数器的貝氏(bayes)模型： 先建立一個向量计数(**字詞計數**)器的模型，再利用此模型轉換為訓練集和測試集。
   + 字詞tfidf的貝氏(bayes)模型：先建立一個词语级tf-idf的模型，再利用此模型轉換為訓練集和測試集。
   ![Alt tfidf的貝氏(bayes)模型預測結果](https://github.com/yichichou/NLP/edit/master/tfidf_nb_pred.png)
-  
   + ngram 级tf-idf的貝氏(bayes)模型：先建立一個ngram级tf-idf的模型，再利用此模型轉換為訓練集和測試集。
 
 3.預測資料集：
