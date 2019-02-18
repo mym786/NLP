@@ -46,9 +46,13 @@
 
 ### 104_crawlerBasedPosition.py
 
-1.104求才網站爬蟲，針對職缺五類(1.	管理/行政/財經/法務。2.	行銷/業務/服務。3.	教育/媒體/傳播。4.	軟硬體研發/製造/工程。5.	其他專業 (農林漁牧/餐飲/醫學/軍警/物流/採購)。)將**公司名稱、職缺名稱、工作內容和工作條件** 作為欄位的存取，並依序存入csv檔(依序為 class1_content_output.csv、class2_content_output.csv、class3_content_output.csv、class4_content_output.csv和class5_content_output.csv
+1.
 
-2. **作為訓練modle的資料集** 
+104求才網站爬蟲，針對職缺五類(1.	管理/行政/財經/法務。2.	行銷/業務/服務。3.	教育/媒體/傳播。4.	軟硬體研發/製造/工程。5.	其他專業 (農林漁牧/餐飲/醫學/軍警/物流/採購)。)將**公司名稱、職缺名稱、工作內容和工作條件** 作為欄位的存取，並依序存入csv檔(依序為 class1_content_output.csv、class2_content_output.csv、class3_content_output.csv、class4_content_output.csv和class5_content_output.csv
+
+2.
+
+**作為訓練modle的資料集** 
 
 
 ### yourator_crawler.py
