@@ -49,7 +49,7 @@
     原文：https://blog.csdn.net/John_xyz/article/details/79208564 
 
 
-  + (2)針對文本中的字詞求得詞向量(可用fasttext, word2vec, word=bedding...)後，然後作均值(所有詞向量加總後除以所有字詞數)的處理，也就是使用了     average word vectors方法，就是简单的对句子中的所有词向量取平均。是一种简单有效的方法，但缺点也是没有考虑到单词的顺序，即可得到"文本的向量"，再用文本的向量利用"餘弦相似度"來和其他文本向量來求相似度。
+  + (2)目前針對文本中的字詞求得詞向量(可用fasttext, word2vec, word=bedding...)後，然後作均值(所有詞向量加總後除以所有字詞數)的處理，也就是使用了     average word vectors方法，就是简单的对句子中的所有词向量取平均。是一种简单有效的方法，但缺点也是没有考虑到单词的顺序，即可得到"文本的向量"，再用文本的向量利用"餘弦相似度"來和其他文本向量來求相似度。
 
 ![image](https://github.com/yichichou/NLP/blob/master/%E8%81%B7%E7%BC%BA%E5%AA%92%E5%90%88%E7%B3%BB%E7%B5%B1%E6%9E%B6%E6%A7%8B%E5%9C%96.png)
 
